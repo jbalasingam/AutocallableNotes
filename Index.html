@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>LimitCalculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid header col-sm-12" style="text-align: center; background: grey; padding:20px;">
+        <h1>Autocallable Notes Issuance Tool</h1>
+    </div>
+
+    <div class="container">
+            
+        
+            <form class="form-row deal">
+
+
+                    <div class="form-group underlying col-sm-2">
+                       
+                       <button class="btn btn-primary dropdown-toggle" type="button" style="margin-top:32px;" id="dropdownMenuButton" data-toggle="dropdown">
+                                    <span class="optionType">Option Type</span>
+                            </button> 
+                                <div class="dropdown-menu">
+                                   <li><a class="dropdown-item typeCall" href="#">  Call  </a></li>
+                                   <li><a class="dropdown-item typeCoupon" href="#"> Coupon </a></li>
+                                   <li><a class="dropdown-item typeKnockin" href="#">Knock-In</a></li>
+                                </div>
+                    </div>
+
+                    <div class="form-group underlying col-sm-2">
+                    <label for="underlying">Underlier</label>
+                    <input type="underlying" class="form-control" id="underlying"  placeholder="SPX.INDX">
+                    </div>
+                    <div class="form-group issuedate col-sm-2">
+                            <label for="issuedate">Issue Date</label>
+                            <input type="issuedate" class="form-control" id="issuedate" placeholder="mm/dd/yyyy">
+                    </div>
+                    <div class="form-group maturitydate col-sm-2">
+                            <label for="maturitydate">Maturity</label>
+                            <input type="maturitydate" class="form-control" id="maturitydate" placeholder="mm/dd/yyyy">
+                    </div>
+                    <div class="form-group digitalreturn col-sm-2">
+                            <label for="digitalreturn">Return</label>
+                            <input type="digitalreturn" class="form-control" id="digitalreturn" placeholder="0.25">
+                    </div>
+                    <div class="form-group tier col-sm-2">
+                            <label for="tier">Tier</label>
+                            <input type="tier" class="form-control" id="tier" placeholder="3">
+                    </div>
+            </form>
+
+    </div>
+
+
+    <div class="container"> <button type="button" class="btn btn-success add">Calculate</button></div>
+   
+
+
+        <script src="https://d3js.org/d3.v4.min.js">
+        
+                d3.csv("Underliers.csv", function(data) {
+                console.log(data);
+                });
+        </script>
+
+
+
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+
+
+  </body>
+</html>
