@@ -6,6 +6,7 @@ var Sigma = 0.2;
 var SigmaSquare = Sigma**2;
 var ExpGrowth = 0.01;
 var BinaryExposure = [];
+var days = 365; 
 
 
 
@@ -19,24 +20,64 @@ $(".dropdown-menu li a").click(function(){
 });
 
 // Function to get input value.
-$('.add').click(function() {
+$('.calculate').click(function() {
+
     var OptionType = $('.optionType').text();
     var Underlying = $("#underlying").val();
     var IssueDate = $("#issuedate").val();
     var MaturityDate = $("#maturitydate").val();
     var Return = $("#digitalreturn").val();
-    var TermToMaturity = Math.abs(MaturityDate - IssueDate);
+
+    //tier logic
+    var tier = $("#tier").val();
+    var shock;
+    if (tier == 1 | tier == 2){
+      
+      shock = 0.05;
+
+    } else if(tier == 3){
+
+      shock = 0.1;
+
+    } else if (tier == 4){
+
+      shock = 0.15
+
+    } else {
+
+      shock =0.2
+
+    }
+
+    console.log(shock);
+
+    //calculate the difference between issue date and maturity date
+    var b = moment(MaturityDate,'M-D-YYYY');
+    var a = moment(IssueDate,'M-D-YYYY');
+    var TermToMaturity  = b.diff(a, 'days');
+    
     console.log(TermToMaturity);
 
+    var theta = TermToMaturity/days
+
     if(OptionType=='' || Underlying=='' || IssueDate=='' || MaturityDate=='' || Return=='') {
-    alert("Enter Some Text In Input Field");
+    console.log("Enter Some Text In Input Field");
     }
+
+
 
 
     });
 
 
 
+
+
+
+//Function what happens 
+$('.add').click(function() {
+
+});
 
 
 
